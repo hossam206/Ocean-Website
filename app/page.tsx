@@ -1,112 +1,177 @@
-import Image from "next/image";
+import Buttons from "@/Components/Buttons";
+import FeatureBlock from "@/Components/FeatureBlock";
+import Heading from "@/Components/Heading";
 
+import {
+  Comapines_Images,
+  customers,
+  Feature_Blocks,
+  Feature_Comp,
+} from "@/Constans/constant";
+import Image from "next/image";
+import Link from "next/link";
+import { HiArrowRightCircle } from "react-icons/hi2";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
+import Pricing_section from "./Sections/Pricing_section";
+import CustomerBlock from "@/Components/CustomerBlock";
+import Footer from "@/Components/Footer";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
+    <main className="overflow-hidden pt-24 ">
+      <div className="container relative">
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src="/Images/bg.png"
+          width={1920}
+          height={1080}
+          alt="bannerimg"
+          className="absolute -top-20 -z-50 w-full min-h-screen left-0 opacity-10"
         />
-      </div>
+        {/* Home Section */}
+        <section className="relative">
+          <div className="flex flex-col  items-center space-y-12 text-center">
+            <div className="flex flex-col items-center  space-y-6">
+              <p className="flex flex-row items-center gap-3 border  border-slate-700 px-10 py-1 rounded-3xl text-xs capitalize hover:border-sky-700 hover:bg-slate-800 transition-all duration-200 cursor-pointer shadow-md ">
+                new feature is now avilable
+                <HiArrowRightCircle />
+              </p>
+              <Heading title={"A CRM dashboard for engineering teams"} />
+              <p className="text-sm tracking-wide max-w-[46rem] sm:text-lg sm:leading-8 leading-normal">
+                Boost engineering team’s productivity with Ocean CRM dashboard
+                that streamlines project management, collaboration, and
+                data-driven decision-making.
+              </p>
+              <div className="flex gap-3 flex-col items-center justify-center md:flex-row">
+                <Buttons varient="btn-primary">
+                  get started
+                  {/* <MdOutlineArrowRightAlt className="text-white text-xl" /> */}
+                </Buttons>
+                <Link href="#pricing">
+                  <Buttons varient="btn-outline">View pricing</Buttons>
+                </Link>
+              </div>
+            </div>
+            <Image
+              src="/Images/Hero-image.svg"
+              width={670}
+              height={370}
+              alt="banner"
+              className="mx-auto shadow-xl"
+            />
+          </div>
+        </section>
+        {/* Home Section */}
+        {/* Compaines section */}
+        <section className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4">
+          {Comapines_Images.map((item, index) => (
+            <Image
+              key={index}
+              src={item.img}
+              alt={item.alt}
+              width={200}
+              height={200}
+            />
+          ))}
+        </section>
+        {/* Compaines section */}
+        {/* Powerfull Feature */}
+        <section className="flex flex-col space-y-10  md:gap-y-20 lg:gap-y-24">
+          {/* part1 */}
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-12 overflow-hidden">
+            <Image
+              src="/Images/bg2.png"
+              alt="bg2Img"
+              width={1920}
+              height={1080}
+              loading="lazy"
+              className="absolute top-0 left-0 -z-50 w-full  opacity-10 "
+            />
+            <div className="flex flex-col space-y-4 item-center lg:items-start ">
+              <Heading
+                title={"Powerful features to  help you manage all your leads."}
+              />
+              <p className="text-[17px]    ">
+                Apsum dolor sit amet consectetur. Aliquam elementum <br />
+                elementum in ultrices. Dui maecenas ut eros turpis ultrices{" "}
+                <br /> metus morbi aliquet vel.
+              </p>
+              <Buttons varient="btn-primary">get started</Buttons>
+            </div>
+            <div className="flex flex-col space-y-14 items-start">
+              {Feature_Blocks.map((block, index) => (
+                <div
+                  key={index}
+                  className="flex flex-row items-center gap-6 hover:bg-slate-800 rounded-md 
+                border-2 border-transparent hover:border-sky-600 py-3 px-6 transition-all duration-300 cursor-pointer"
+                >
+                  <Image
+                    src={block.img}
+                    alt="BlockImg"
+                    width={50}
+                    height={50}
+                  />
+                  <div className="flex flex-col items-start gap-1">
+                    <h3 className="text-slate-100 font-bold text-base tracking-wide">
+                      {block.head}
+                    </h3>
+                    <p className="text-sm leading-6 ">{block.paragraph}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* part1 */}
+        </section>
+        {/* Powerfull Feature */}
+        {/* Integrated section*/}
+        <section className="py-10">
+          <div className="flex flex-col items-center gap-20">
+            {Feature_Comp.map((feature, index) => (
+              <FeatureBlock key={index} {...feature} />
+            ))}
+          </div>
+        </section>
+        {/* Integrated section*/}
+        {/* Pricing Section */}
+        <Pricing_section />
+        {/* Pricing Section */}
+        {/* meet our customer */}
+        <section id="testemoniles">
+          <Heading title={"Meet our Customers."} iscenterd />
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-10">
+            {customers.map((block, index) => (
+              <CustomerBlock key={index} {...block} />
+            ))}
+          </div>
+        </section>
+        {/* meet our customer */}
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Let’s try section */}
+        <section
+          className="lg:px-24 px-4 lg:py-12
+        flex flex-col lg:flex-row justify-between items-center gap-6
+        bg-slate-800 rounded-lg"
         >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <div className="flex flex-col space-y-4 ">
+            <Heading title={"Let’s try our service now!"} iscenterd />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <p className="max-w-[599px] text-center md:text-start  ">
+              Experience the power of Ocean CRM dashboard for engineering teams.
+              Boost productivity and streamline collaboration. Get started
+              today!
+            </p>
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+          <Buttons varient="btn-primary">
+            Get started
+            <FaLongArrowAltRight />
+          </Buttons>
+        </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        {/* Let’s try section */}
+        {/* start footer */}
+        <Footer />
+        {/* start footer */}
       </div>
     </main>
   );
